@@ -2,6 +2,7 @@ package com.company;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Main {
             System.out.printf("Geef doelpunten %s: ", uitslag.getUitploeg());
             int doelpuntenUit = Integer.parseInt(scanner.nextLine());
             uitslag.setDoelpuntenThuisploeg(doelpuntenThuis);
-            uitslag.setDoelpuntenUitPloeg(doelpuntenUit);
+            uitslag.setDoelpuntenUitploeg(doelpuntenUit);
         }
         toonKalender(kalender);
         for(Uitslag uitslag: kalender){
@@ -26,7 +27,7 @@ public class Main {
                 ploeg.verwerkUitslag(uitslag);
             }
         }
-        Collections.sort(ploegen);
+        //Collections.sort(ploegen);
         toonPloegen(ploegen);
 
     }
@@ -83,6 +84,7 @@ public class Main {
 
 class Ploeg {
     private String naam;
+    private String lijn;
 
     public Ploeg(String naam) {
         this.naam = naam;
@@ -91,16 +93,68 @@ class Ploeg {
     public String getNaam() {
         return naam;
     }
+
+    public void verwerkUitslag(Uitslag uitslag) {
+
+    }
+
+    public String getLijn() {
+
+        return null;
+    }
 }
 
 class Uitslag {
     private LocalDate speeldag;
     private String thuisploeg;
     private String uitploeg;
+    private int doelpuntenThuisploeg;
+    private int doelpuntenUitploeg;
 
     public Uitslag(LocalDate speeldag, String thuisploeg, String uitploeg) {
         this.speeldag = speeldag;
         this.thuisploeg = thuisploeg;
         this.uitploeg = uitploeg;
+
+    }
+
+    public LocalDate getSpeeldag() {
+        return speeldag;
+    }
+
+    public void setSpeeldag(LocalDate speeldag) {
+        this.speeldag = speeldag;
+    }
+
+    public String getThuisploeg() {
+        return thuisploeg;
+    }
+
+    public void setThuisploeg(String thuisploeg) {
+        this.thuisploeg = thuisploeg;
+    }
+
+    public String getUitploeg() {
+        return uitploeg;
+    }
+
+    public void setUitploeg(String uitploeg) {
+        this.uitploeg = uitploeg;
+    }
+
+    public void setDoelpuntenThuisploeg(int doelpuntenThuisploeg) {
+        this.doelpuntenThuisploeg = doelpuntenThuisploeg;
+    }
+
+    public void setDoelpuntenUitploeg(int doelpuntenUitploeg) {
+        this.doelpuntenUitploeg = doelpuntenUitploeg;
+    }
+
+    public String getLijn() {
+        return null;
+    }
+
+    public LocalDate getDatum() {
+        return null;
     }
 }
